@@ -33,15 +33,15 @@ class PixivDaily:
     # prepare download params
     def fix(self, html):
         path = re.findall(self.pattern_url, html)
-        path_ids = [dict(path=p,
-                         id=re.findall(self.pattern_illust_id, p)[0])
-                    for p in path]
+        path_ids = [dict(
+                        path = p,
+                        id   = re.findall(self.pattern_illust_id, p)[0]
+                    ) for p in path]
         return [dict(
-            illust_id=p['id'],
-            referer="http://www.pixiv.net/member_illust.php?mode=manga_big&illust_id=" +
-                p['id'] + "&page=0",
-                short_name='illust_id_' + p['id'],
-                url=p['path'].replace('/c/240x480', '')
+                    illust_id  = p['id'],
+                    referer    = "http://www.pixiv.net/member_illust.php?mode=manga_big&illust_id=" + p['id'] + "&page=0",
+                    short_name = 'illust_id_' + p['id'],
+                    url        = p['path'].replace('/c/240x480', '')
                 ) for p in path_ids]
 
     def downloadPics(self, params, local_path):
