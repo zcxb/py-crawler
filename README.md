@@ -1,2 +1,3 @@
-# PixivGrabber
-P站抓图服务(自用)
+# GecSpider
+- pixiv_daily
+  > p站日榜
