@@ -29,12 +29,13 @@ class PixivDaily:
 
     # prepare download params
     def fix(self, html):
-        path_raw = re.findall(self.pattern_url, html)
+        path = re.findall(self.pattern_url, html)
         return [{
-                    'illust_id': re.findall(self.pattern_illust_id, path)[0],
-                    'referer': "http://www.pixiv.net/member_illust.php?mode=manga_big&illust_id=" + re.findall(self.pattern_illust_id, path)[0] + "&page=0",
-                    'url': path.replace('/c/240x480', '')
-                } for path in path_raw]
+                    'illust_id': re.findall(self.pattern_illust_id, p)[0],
+                    'referer': "http://www.pixiv.net/member_illust.php?mode=manga_big&illust_id=" 
+                               + re.findall(self.pattern_illust_id, p)[0] + "&page=0",
+                    'url': p.replace('/c/240x480', '')
+                } for p in path]
 
     def downloadPics(self, list):
         pass
