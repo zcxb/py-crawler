@@ -55,7 +55,7 @@ class PixivDaily:
             res.close()
 
 
-def run(local_path):
+def main(local_path):
     spider = PixivDaily()
     html = spider.getHtml(PixivDaily.requestUrl)
     res = spider.fix(html)
@@ -63,4 +63,4 @@ def run(local_path):
 
 
 if __name__ == "__main__":
-    run('E:\\FArtorias\\Pics')
+    main('E:\\FArtorias\\Pics')
